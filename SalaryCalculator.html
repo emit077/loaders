@@ -1,0 +1,288 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+    <title>Title</title>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
+        integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+    <style>
+        @import url('https://fonts.googleapis.com/css?family=Bangers|Kaushan+Script|Marck+Script|Permanent+Marker|Trochut:400,400i,700&display=swap');
+        @import url('https://fonts.googleapis.com/css?family=Caveat+Brush&display=swap');
+
+        body {
+            font-family: 'Permanent Marker', cursive;
+            background-color: #020202bb;
+        }
+
+        .form-control {
+            background-color: #000000c4;
+            color: #15d2d2;
+            border-block-color: wheat;
+            border-radius: 5px;
+            /* font-family: 'Kaushan Script', cursive; */
+            /* font-family: 'Trochut', cursive; */
+            /* font-family: 'Bangers', cursive; */
+            /* font-family: 'Marck Script', cursive; */
+            font-family: 'Caveat Brush', cursive;
+        }
+
+        h3 {
+            /* font-family: 'Kaushan Script', cursive; */
+            /* font-family: 'Trochut', cursive; */
+            /* font-family: 'Bangers', cursive; */
+            font-family: 'Marck Script', cursive;
+
+        }
+
+        .form-control:focus {
+            background-color: #00000094;
+            color: #15d2d2;
+        }
+
+        span {
+
+            /* font-family: 'Kaushan Script', cursive; */
+            font-family: 'Trochut', cursive;
+            /* font-family: 'Bangers', cursive; */
+            text-decoration: underline;
+            color: #f3ca7d;
+        }
+
+        #results {
+            /* font-family: 'Kaushan Script', cursive; */
+            font-family: 'Trochut', cursive;
+            /* font-family: 'Bangers', cursive; */
+        }
+
+        .btn :hover .btn-outline-primary:hover {
+            background-color: none;
+            outline-color: aqua;
+        }
+
+        .text-muted {
+            padding-left: 10px;
+            font-family: 'Roboto';
+            /* font-family: 'Trochut', cursive; */
+            /* font-family: 'Bangers', cursive; */
+            color: #f3ca7d !important;
+        }
+    </style>
+</head>
+
+<body>
+
+    <!-- Optional JavaScript -->
+    <!-- jQuery first, then Popper.js, then Bootstrap JS -->
+    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
+        integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo"
+        crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"
+        integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1"
+        crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"
+        integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM"
+        crossorigin="anonymous"></script>
+
+
+    <div class="card bg-dark text-white">
+        <img class="card-img" style="height: 80%;"
+            src="https://images.unsplash.com/photo-1556636530-6b7482d80e3d?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=750&q=80"
+            alt="">
+        <div class="card-img-overlay" style="background-color: rgba(0, 0, 0, 0.589)">
+            <div class="container">
+                <div>
+                    <h1>Hello Employees...</h1>
+                    <h3>Here you can calculate your salary.......</h3>
+                    <!-- <p style="text-align: right" id="todayss">time here</p>/ -->
+                    <br>
+                </div>
+                <div class="row">
+                    <div class="col-sm-2">
+                        <label for="basesalary">base Salary</label><br>
+                        <input type="text" id="basesalary" class="form-control input2" maxlength="8"></input>
+                    </div>
+                    <div class="col-sm-2">
+                        <label for="totalleaves">Total Leaves</label><br>
+                        <input type="text" id="totalleaves" class="form-control input" maxlength="2"></input>
+                        <small id="emailHelpId" class="form-text text-muted">(Including One leave)</small>
+                    </div>
+                    <div class="col-sm-2">
+                        <label for="halfdays">Half Days</label><br>
+                        <input type="text" id="halfdays" class="form-control input" maxlength="2"></input>
+                    </div>
+                    <div class="col-sm-2">
+                        <label for="holidays">Holidays</label><br>
+                        <input type="text" id="holidays" class="form-control input" maxlength="2"></input>
+                        <small id="emailHelpId" class="form-text text-muted">(Excluding Sunday)</small>
+                    </div>
+                    <div class="col-sm-2">
+                        <br style="font-size :21px;">
+                        <input type="submit" onclick="calcsalary()" class="btn btn-outline-primary" value="Calc salary">
+                    </div>
+                </div>
+                <!-- <div class="row">
+                    <div class="col-sm-3">
+                        <label for="workingdays"> Total Working Days</label><br>
+                        <span data-toggle="tooltip" title="Hooray!">
+                        <input type="number" id="workingdays" class="form-control"></input>
+                        </span>
+                    </div>
+                    <div class="col-sm-3">
+                        <label for="Yourworkingdays"> Your Working Days</label><br>
+                        <input type="number" id="Yourworkingdays" class="form-control"></input>
+                    </div>
+
+                    <div class="col-sm-3">
+                        <label for="yoursalary">Your Salary</label><br>
+                        <input type="number" id="yoursalary" class="form-control"></input>
+                    </div>
+                   
+                </div> -->
+                <div style="font-size:24px ;margin: 40px;display: none" id="results">
+                    Dear Employees,<br><br>
+                    You work <span id="Yourworkingdays_actual" class=""></span><span id="Yourworkingdays_achalf"></span>
+                    out of <span id="workingdays"></span>
+                    on this month.Company Allows one leave in a month, so as per Company policy you will recieve the
+                    salary of <span id="Yourworkingdays"></span><span id="halfdaystext"></span>
+                    in the scale of <span id="Salaryperday"></span>.
+                    So Your salary of this month is </i><span id="yoursalary"></span> in Rupees.
+                    <p style="text-align: right">Thank you for your contrubution in our Achivments.</p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+</body>
+<script>
+    $('.input').keyup(function () {
+        if (!this.value.match(/[0-9]/)) {
+            // alert(this.value);
+            this.value = this.value.replace(/[^0-9]/g, '');
+        } else {
+            if (this.value > 27) {
+                var str = this.value;
+                // alert(str);
+                var res = str.substr(0,1);
+                // alert(res);
+                this.value =res;
+            }
+        }
+    });
+    $('.input2').keyup(function () {
+        if (!this.value.match(/[0-9]/)) {
+            // alert(this.value);
+            this.value = this.value.replace(/[^0-9]/g, '');
+        } else {
+            if (this.value > 100000000) {
+                var str = this.value;
+                // alert(str);
+                var res = str.substr(0,1);
+                // alert(res);
+                this.value =res;
+            }
+        }
+    });
+    // var tod = new Date();
+    // var y = tod.getFullYear();
+    // var m = tod.getMonth() + 1;
+    // var d = d.getDate();
+    // var formatedate = d + "-" + m + "/" + y;
+    // $("#todayss").text(formatedate);
+    function calcsalary() {
+        // alert("salary");
+        var basesalary = $("#basesalary").val();
+        var totalleaves = $("#totalleaves").val();
+        var holidays = $("#holidays").val();
+        var halfdays = $("#halfdays").val();
+        var half = halfdays / 2;
+        //   alert(half);
+        // alert(Number.isInteger(basesalary));
+        // if ((Number.isInteger(basesalary)==false)||(Number.isInteger(totalleaves)==false)||(Number.isInteger(holidays)==false)) {
+        // alert("Must input numbers");
+        // return null;
+        // }
+        var today = new Date();
+        var year = today.getFullYear();
+        var month = today.getMonth();
+        var sundaysCount = sundays(year, month);
+        var totaldaysInmonth = new Date(2019, month, 0).getDate();
+        var workingdays = totaldaysInmonth - sundaysCount - holidays;
+        var Salaryperday = basesalary / workingdays;
+        var Yourworkingdays;
+        var actualworkingdays = workingdays - totalleaves - halfdays;
+        var HalfdaysSalary;
+        var strhalf;
+        if (totalleaves > 1) {
+            Yourworkingdays = workingdays - (totalleaves - 1);
+            if (halfdays > 0) {
+                Yourworkingdays -= halfdays;
+                HalfdaysSalary = (Salaryperday / 2) * halfdays;
+                // alert()
+                strhalf = " and " + halfdays + " Halfday ";
+            }
+        } else {
+            Yourworkingdays = workingdays;
+            if (halfdays > 2) {
+                Yourworkingdays -= halfdays;
+                HalfdaysSalary = (Salaryperday / 2) * halfdays;
+                // alert()
+                strhalf = " and " + halfdays + " Halfday ";
+            }
+
+        }
+
+        var totalsalary = Salaryperday * Yourworkingdays;
+        // alert(totalsalary);
+        if (totalleaves > 1) {
+            if (halfdays > 0) {
+                totalsalary = totalsalary + HalfdaysSalary;
+            }
+        } else {
+            if (halfdays > 2) {
+                totalsalary = totalsalary + HalfdaysSalary;
+            }
+        }
+        // Yourworkingdays = Yourworkingdays.toFixed(2)
+        Salaryperday = Salaryperday.toFixed(2);
+        totalsalary = totalsalary.toFixed(2);
+        // workingdays = workingdays.toFixed(2)
+
+        $("#Yourworkingdays_actual").text(actualworkingdays + " Days ");
+        if (halfdays > 0) {
+            $("#Yourworkingdays_achalf").text(" and " + halfdays + " Halfday ");
+        }
+        $("#workingdays").text(workingdays + " Workingdays");
+        $("#Yourworkingdays").text(Yourworkingdays + " Days");
+        $("#halfdaystext").text(strhalf);
+        $("#Salaryperday").text(Salaryperday + "/Day ");
+        $("#yoursalary").text(totalsalary);
+        $("#results").show();
+
+        $("#basesalary").val("");
+          $("#totalleaves").val("");
+        $("#holidays").val("");
+        $("#halfdays").val("");
+    }
+    function sundays(year, month) {
+        var day, counter, date;
+        day = 1;
+        counter = 0;
+        date = new Date(year, month, day);
+        while (date.getMonth() === month) {
+            if (date.getDay() === 0) { // Sun=0, Mon=1, Tue=2, etc.
+                counter += 1;
+            }
+            day += 1;
+            date = new Date(year, month, day);
+        }
+        return counter;
+    }
+
+</script>
+
+</html>

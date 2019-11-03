@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <style>
+        .loader {
+            border: 5px solid #ffffff;
+            border-radius: 50%;
+            /* background-color: #3496d8 */
+            border-top: 5px solid #3498db;
+            width: 300px;
+            height: 300px;
+            animation: spin 8s linear infinite;
+            position: absolute;
+            top: 255px;
+            left: 355px;
+        }
+
+        .loader2 {
+            border: 5px solid #ffffff;
+            border-radius: 50%;
+            /* background-color: #34db4a */
+            border-left: 5px solid #0b151b;
+            width: 290px;
+            height: 290px;
+            animation: spin2 10s linear infinite;
+        }
+
+        .loader3 {
+            border: 5px solid  #ffffff  ;
+            border-radius: 50%;
+            border-bottom: 5px solid #c9b92c9a;
+            /* background-color: #db8534 */
+            width: 280px;
+            height: 280px;
+            animation: spin3 12s linear infinite;
+        }
+
+        .loader4 {
+            border: 5px solid  #ffffff; 
+            border-radius: 50%;
+            /* background-color: #111416 */
+            border-right: 5px solid #c97136;
+            width: 270px;
+            height: 270px;
+            animation: spinerr 14s linear infinite;
+        }
+
+        @keyframes spin {
+            0% {
+                transform: rotate(0deg);
+            }
+            100% {
+                transform: rotate(-360deg);
+            }
+        }  @keyframes spin2 {
+            0% {
+                transform: rotate(0deg);
+            }
+            100% {
+                transform: rotate(-360deg);
+            }
+        }  @keyframes spin3 {
+            0% {
+                transform: rotate(0deg);
+            }
+            100% {
+                transform: rotate(360deg);
+            }
+        }  @keyframes spinerr {
+            0% {
+                transform: rotate(0deg);
+            }
+            100% {
+                transform: rotate(-360deg);
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+
+    <div class="loader">
+        <div class="loader2">
+            <div class="loader3">
+                <div class="loader4">
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+
+</body>
+
+</html>
